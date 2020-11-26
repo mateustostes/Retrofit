@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.aula12_11.dominio.User
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        buscaDados()
     }
 
     private fun buscaDados() {
@@ -23,6 +25,8 @@ class MainActivity : AppCompatActivity() {
                 if (lista != null) {
                     for (user in lista) {
                         Log.d("Resposta", user.name.toString())
+                        nome1.text = lista?.get(0)?.name
+                        email1.text = lista?.get(0)?.email
                     }
                 }
             }
